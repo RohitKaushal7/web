@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cards</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="../../utils/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div class="card">
+			<!-- <div class="back"></div> -->
+			<div class="dp"></div>
+			<div class="data">
+				<div class="tag"></div>
+				<div class="name">Rohit Kaushal</div>
+				<div class="info">Web Developer</div>
+				<div class="contact">9876543210</div>
+			</div>
+			<div class="barc">
+				<div class="bar" style="background: red;"></div>
+				<div class="bar" style="background:yellow ;"></div>
+				<div class="bar" style="background:#3F51B5;"></div>
+				<div class="bar" style="background:#4caf50; "></div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$(function(){
+		$(".card").click(function(){
+			if($(".card").css("height")!="360px"){
+				$(".dp").css({
+					"width":"200px",
+					"height":"200px",
+					"border-radius":"50%",
+					// "border":"5px solid #fff",
+					"margin":"20px auto"
+				});
+				$(".data").css({
+					"bottom":"0",
+					"padding-top":"90px",
+					"background": "#fff"
+				});
+				$(".card").css({
+					"height":"360px",
+					"width":"270px"
+				});
+				$(".name").css("color","#333")
+			}
+
+			else
+			{
+				$(".dp").css({
+				"width":"270px",
+				"height":"240px",
+				"border-radius":"0px 0 20px 20px",
+				// "border":"0px solid #fff",
+				"margin":"0px auto"
+				});
+				$(".data").css({
+					"bottom":"-70px",
+					"padding-top":"30px",
+					"background": "#0e0e0e11"
+				});
+				$(".card").css({
+					"height":"330px",
+					"width":"270px"
+				});
+				$(".name").css("color","#fffc")
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

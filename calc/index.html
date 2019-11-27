@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="hd">Calculator</div>
+    <div class="container">
+        <div class="inp"> 
+            <form id="ex">
+                <input type="text" autocomplete="off" placeholder="expression" id="in">
+                <input type="submit">
+            </form>
+        </div>
+    
+        <div class="ops" id="res">
+            <div class="node" style="background: white; color: #999;">5+6 = 11</div>
+            <div class="node" style="background: white; color: #999;">(5+6)*3 = 33</div>
+            <div class="node" style="background: white; color: #999;">sin(0) = 0</div>
+            <div class="node" style="background: white; color: #999;">3**3 = 27  // power</div>
+            <div class="node" style="background: white; color: #999;">log(exp(1)) = 1</div>
+            <div class="node" style="background: white; color: #999;">log10(100) = 2</div>
+            <div class="node" style="background: white; color: #999;">log2(4) = 2</div>
+            <div class="node" style="background: white; color: #999;">PI = 3.14159</div>
+            <div class="node" style="background: white; color: #999;">E=e=2.718281828459045</div>
+            <div class="node" style="background: white; color: #999;">x= sin(1)**2 + 10*2*(2+6)  // variables</div>
+            <div class="node" style="background: white; color: #999;"></div>
+        </div>
+    </div>
+
+    <script>
+        var q = document.querySelector("#in");
+        var form = document.querySelector("#ex");
+        var rc = document.querySelector("#res");
+        var body = document.querySelector("body");
+        var alpha="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        var ctr = 0;
+        var m=0; // mode 1: input = result , 0: input = expression
+        q.focus();
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            var qr = q.value;
+            if(!qr)return;
+            qra = Array.from(qr);
+            for(var i=0;i<qra.length;++i){
+                if(alpha.includes(qra[i])){
+                    qra.splice(i,0,"Math.");
+                    ++i;
+                    while(alpha.includes(qra[i]))
+                        i++;
+                }
+                
+            }
+            qrf=qra.join("");
+            try{
+                var res = eval(qrf);
+
+                q.className=" ";
+                body.style.background="#eee";
+
+                console.log(qrf+" = "+res);
+                res=Math.round(res*1000000000000000)/1000000000000000;
+                var node = document.createElement('div');
+                node.className="node";
+                node.innerHTML= "<span class='ctr'>"+ctr+"</span> "+qr +" = "+ res;
+                rc.appendChild(node);
+                m&&(q.value=res);
+                rc.scrollTop=0;
+                ctr++;
+            }
+            catch{
+                console.log("error");
+                q.className="error";
+                body.style.background="#f009";
+
+            }
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    clear: both;
+    scroll-behavior: smooth;
+    color: #333;
+    transition: all 0.3s;
+    font-family: monospace;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    background: #fff;
+}
+
+.container{
+    max-width: 980px;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.inp{
+    width: 100%;
+    position: sticky;
+    top: 3rem;
+}
+#task{
+    width: 90%;
+    height: 3rem;
+    font-size: 1.3rem;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    padding: 0.2rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0px #0002;
+}
+
+#task:focus{
+    box-shadow: 0 3px 5px 1px rgba(2, 27, 255, 0.137);
+}
+
+.list{
+    width: 90%;
+    max-height: 80%;
+}
+.list .hd{
+    margin: 2rem auto;
+    position: relative;
+}
+.h1{
+    display: inline-block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    float:left;
+    color: #555;
+    font-family: monospace;
+    margin: 0  1rem;
+    /* background: rgb(252, 6, 6); */
+}
+.btn{
+    display: inline-block;
+    clear: none;
+    height: 2.5rem;
+    border-radius: 5px;
+    float: right;
+    /* width: 6rem; */
+    padding: 0.4rem 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #fff;
+    background: #3362fa;
+    box-shadow: 0 1px 5px 2px #3362fa55;
+    cursor: pointer;
+}
+
+.btn:hover{
+    box-shadow: 0 1px 7px 3px #0e23df93;
+    background: rgb(4, 0, 255);
+}
+.btn:active{
+    box-shadow: 0 1px 3px 1px #0e23df93;
+    transform: scale(0.97);
+}
+
+ul{
+    margin-top: 6rem;
+    display: block;
+    height: 85%;
+    overflow: scroll;
+    width: 100%;
+    font-family: monospace;
+}
+
+li{
+    /* height: 2rem; */
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.5rem 0.7rem;
+    /* background: #f00; */
+    border: 1px solid #5555;
+    border-radius: 5px;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    /* box-shadow: 0 2px 1px 1px #2222; */
+    /* padding: 0 1rem; */
+    cursor: default;
+}
+::selection{
+    background: yellow;
+    font-style: italic;
+    color: red;
+}
+.mark{
+    content: '';
+    display: inline-block;
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-right: 1rem;
+    /* background: rgb(42, 108, 252); */
+    border: 1px solid hsl(221, 97%, 58%);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mark:active{
+    background: rgb(42, 108, 252);
+}
+.done{
+    background: rgb(42, 108, 252);
+    cursor: pointer;
+}
+.fade{
+    background: #000;
+    color: white;
+    text-decoration: line-through;
+}

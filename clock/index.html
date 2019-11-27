@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Clock</title>
+</head>
+<body>
+	<div class="ext">
+		<div class="clock">
+			<div class="top">
+				my clock
+			</div>
+			<div class="main" id="c">
+				
+			</div>
+			<div class="bottom" id="b">
+				Thursday,  21 Mar 2019
+			</div>
+			<div id="bar">
+				<div id="bar2"></div>
+				<div id="bar3"></div>
+				<div id="bar4"></xdiv>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var c  = document.getElementById('c');
+		var b = document.getElementById('b');
+		var bar = document.getElementById('bar');
+		var bar3 = document.getElementById('bar3');
+		var bar4 = document.getElementById('bar4');
+
+		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		
+
+		refresh();
+		setInterval('refresh()',1000);
+
+
+		function refresh()
+		{
+			var  date = new Date();
+			var d = date.getDate();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			var day = date.getDay();
+			var mon = date.getMonth();
+			var y = date.getYear();
+
+			c.innerHTML = '<span id="hour">'+h+'</span><span id="min">'+m+'</span><span id="sec">'+s+'</span>';
+			b.innerHTML =days[day] +', '+d+' '+months[mon]+' '+y;
+			bar.style.width = s/60*100 +"%";
+			bar3.style.width = m/60*100 +"%";
+			bar4.style.width = h/60*100 +"%";
+			if (s==0) {
+				document.getElementById('min').style.animation = "an 2s ease";
+			}
+		}
+
+	</script>
+</body>
+</html>

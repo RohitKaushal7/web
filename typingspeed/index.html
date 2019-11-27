@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Typing Speed</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container" id="ext">
+
+		<div class="heading"> Typing Speed </div>
+		<div id="max"> Max Speed </div>
+
+		<div id="display">Speed</div>
+		<div class="txt">
+			<textarea  id="inp" onkeypress="count();" ></textarea>
+		</div>
+		<div class="dec"></div>
+		<div class="dec"></div>
+		<div class="dec"></div>
+
+		
+	</div>
+
+<script>
+	var inp = document.getElementById('inp');
+	var dis = document.getElementById('display');
+	var ext = document.getElementById('ext');
+	var mx = document.getElementById('max');
+
+
+	var x=0,t=0;
+	var tim;
+	var sp = 0;
+	var max =0;
+
+	inp.focus();
+
+	function count() {
+		x++;
+		
+	}
+
+	function tik() {
+		t++;
+		sp = Math.round(x/t * 100)/100;
+		if (sp>max) max = sp;
+		dis.style.animation = "pop 1s infinite";
+		if(sp>10) dis.style.backgroundColor="#ff0000" , ext.style.backgroundColor= "#ff0000";
+		else if(sp>7) dis.style.backgroundColor="#ff5722" , ext.style.backgroundColor= "#ff5722";
+		else if(sp>5) dis.style.backgroundColor="#149f54" , ext.style.backgroundColor= "#149f54";
+		else if(sp>3) dis.style.backgroundColor="#093498" , ext.style.backgroundColor= "#093498";
+		else dis.style.backgroundColor="#eeeeee" , ext.style.backgroundColor= "#ffffff";
+
+
+		if(t==2) t=1,x=sp;
+
+		dis.innerHTML= sp + '  chps';
+
+		mx.innerHTML= max;
+
+	}
+
+	tim = setInterval("tik()",1000);
+
+	// inp.addEventListener("onkeydown",function(){
+	// 	document.getElementByClassName('txt')[0].style.animation ="pop 1s infinite";
+	// });
+
+</script>
+
+</body>
+</html>

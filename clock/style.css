@@ -1,0 +1,184 @@
+body
+{
+	margin: 0;
+	padding:0;
+}
+
+*
+{
+	box-sizing: border-box;
+	font-family: montserrat;
+}
+
+.ext
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+
+	background: #228690;
+}
+
+.clock
+{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 20px;
+	width: 400px;	
+	border-radius: 10px;
+	background: #fff;
+	overflow: hidden;
+	box-shadow: 0px 0px 20px 2px #0005;
+}
+
+.clock > *
+{
+	animation: pop 0.7s;
+}
+
+.top {
+	font-weight: 600;
+	margin: 10px auto;
+}
+
+
+.main {
+	font-weight: 700;
+	font-size: 4em;
+	margin: 10px auto;
+	color: #333;
+
+}
+
+.bottom {
+	font-weight: 600;
+	margin: 10px auto;
+}
+#bar
+{
+	height: 10px;
+	background: red;
+	transition: all 1s;
+	position: relative;
+	border-radius: 5px;
+	overflow: hidden;
+
+}
+#bar2
+{
+	height: 10px;
+	background: orange;
+	transition: all 1s;
+	opacity: 0.5;
+	position: absolute;
+	animation: wid 0.5s ease alternate infinite;
+}
+#bar3
+{
+	height: 10px;
+	background: yellow;
+	transition: all 1s;
+	opacity: 0.5;
+	position: absolute;
+}
+#bar4
+{
+	height: 10px;
+	background:blue ;
+	transition: all 1s;
+	opacity: 0.5;
+	position: absolute;
+}
+
+#bar, #bar2, #bar3, #bar4
+{
+	border-radius: 5px;
+	text-align: center;
+	/*padding: 0 20px 0 0;*/
+	font-size: 8px;
+	color: #fff;
+}
+
+
+#sec
+{
+
+	width: 100px;
+	background: #FFEB3B;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+	transition: all 0.5s;
+	position: relative;
+	animation: an 1s ease infinite;
+	z-index: 3;
+	margin-left: -5px;
+}
+
+#min
+{
+
+	width: 100px;
+	background: #4CAF50;
+	z-index: 4;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+	transition: all 0.5s;
+	position: relative;
+	margin-left: -5px;
+}
+#hour
+{
+
+	width: 100px;
+	background: #E91E63;
+	z-index: 4;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+	transition: all 0.5s;
+	position: relative;
+	z-index: 5;
+	margin-left: -5px;
+}
+
+
+@keyframes an 
+{
+	0% { left: 50px; opacity: 0; transform: skew(10 deg); }
+	30%{ left: 0; opacity: 1;transform: skew(5deg); }
+	80%{ left: 0; opacity: 1; }
+	100% { left: -50px; opacity: 0; transform: skew(-10 d5g); }
+}
+
+@keyframes slide 
+{
+	0% { left: 0; opacity: 1; }
+	70% { left: -500px; opacity: 0; }
+	100%{ left: 0; opacity: 1; }
+}
+
+@keyframes wid {
+	from {width: 0;}
+	to { width: 100%; }
+}
+
+@media only screen and (max-width: 980px)
+{
+	.clock
+	{
+		transform:scale(2.3);
+	}
+}
+
+
+@keyframes pop {
+	0%{transform: scale(0.4);}
+	50%{transform: scale(1.1);}
+	80%{transform: scale(0.98);}
+	100%{transform: scale(1);}
+}

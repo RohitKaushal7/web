@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XMLHttpRequest</title>
+</head>
+<body>
+	<input type="text" name="pass" value="rohitkaushal7" id="pass">
+	<input type="submit" name="sub" onclick="send()">
+	<div id="msg"></div>
+
+	<script>
+	
+		function send(){
+			var pass = document.querySelector("#pass");
+			var msg = document.querySelector("#msg");
+			const xhr = new XMLHttpRequest();
+			xhr.open('get','https://api.github.com/users/'+pass.value,true);
+			xhr.send();
+	
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var data = JSON.parse(xhr.responseText);
+						console.log(data);
+						var htm = "";
+						for(var x in data){
+							if(x=="avatar_url"){
+								htm+='<img width="100" src="'+data[x]+'">';
+							}
+							else
+								htm+="<p>"+ x + " : " + data[x] + "</p>";
+						}
+
+						msg.innerHTML=htm;
+					}
+					if(xhr.status == 404){
+						console.log("file not found");
+						msg.innerHTML="No user with that username";
+					}
+				}
+			};
+		}
+
+	</script>
+
+</body>
+</html>
