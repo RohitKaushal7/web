@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Qpwie</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+	<div class="container">
+
+		<header>
+			<h1>
+				Web
+			</h1>
+			<p>
+				Normal Web Practice projects.
+			</p>
+		</header>
+
+		<div class="flex">
+			<a href="/todo/" class="project">
+				<div>
+					<h3>Todo</h3>
+				</div>
+			</a>
+
+			<a href="typingspeed/" class="project">
+				<div>
+					<h3>Typing Speed</h3>
+				</div>
+			</a>
+
+			<a href="clock/" class="project">
+				<div>
+					<h3>Clock</h3>
+				</div>
+			</a>
+
+			<a href="tmp1/" class="project">
+				<div>
+					<h3>Template1</h3>
+				</div>
+			</a>
+
+			<a href="xhr/" class="project">
+				<div>
+					<h3>XHR</h3>
+				</div>
+			</a>
+
+			<a href="UserCards/card2/" class="project">
+				<div>
+					<h3>Cards</h3>
+				</div>
+			</a>
+		</div>
+	</div>
+	<footer>
+
+	</footer>
+
 	<script>
-		window.location = "./todo/";
+		let COLORS = [
+			"#ED4264", "#13c191", "#1FA2FF", "#1CD8D2", "#4776E6", "#FFC837", "#8E54E9", "#19d905", "#5eff0f", "#A6FFCB", "#fdf200", "#00feca", "#fe53bb", "#514A9D", "#FFEDBC", "#cca4fd", "#FF8008", "#fd0e30", "#c2d302", "#d1fe49",]
+
+		let projects = document.querySelectorAll('.project');
+
+		projects.forEach((proj, i) => {
+			proj.style.background = COLORS[i];
+		})	
 	</script>
 </body>
+
 </html>
