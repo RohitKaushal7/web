@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../../utils/paper-full.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../../utils/tailwind.min.css" />
+
+    <title>Canvas</title>
+  </head>
+  <body>
+    <div class="root max-w-6xl m-auto py-8 min-h-screen">
+      <header>
+        <div class="text-3xl">Grahan's Scan</div>
+        <p>visualization of graham's algo get a convex hull</p>
+        <p class="text-red-400">
+          some bugs still exists - please refresh if stuck or laggy
+        </p>
+      </header>
+      <div class="ctrl my-8">
+        <div class="flex w-64 justify-between">
+          <label for="points" class="mr-6">No. of Points</label
+          ><input
+            class="border w-24 rounded"
+            type="number"
+            value="100"
+            name="points"
+            id="points"
+          />
+        </div>
+        <div class="flex w-64 justify-between">
+          <label for="delay" class="mr-6">Delay (ms)</label
+          ><input
+            class="border w-24 rounded"
+            type="number"
+            value="20"
+            name="delay"
+            id="delay"
+          />
+        </div>
+      </div>
+      <div
+        class="inline-block cursor-pointer px-6 py-3 text-white bg-blue-400 rounded-lg"
+        id="go"
+      >
+        Go
+      </div>
+      <div class="paper my-8">
+        <canvas id="myCanvas" width="1000" height="500" resize></canvas>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./js/paperScript.js"></script>
+  </body>
+</html>
